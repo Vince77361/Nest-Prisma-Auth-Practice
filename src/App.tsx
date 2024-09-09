@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 
 const App = () => {
-  // 그냥 로그인 기능만 구현함.
+  // 그냥 로그인 기능만 구현함
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const onClick = async () => {
