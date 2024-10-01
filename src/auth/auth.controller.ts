@@ -9,6 +9,7 @@ import {
 import { AuthService } from './auth.service';
 import { LocalAuthGuard } from './Guards/local.auth-guard';
 import { JWTAuthGuard } from './Guards/jwt.auth-guard';
+import { RegisterDTO } from './dto/registerDto';
 
 @Controller('auth')
 export class AuthController {
@@ -21,12 +22,8 @@ export class AuthController {
   }
 
   @Post('register')
-  async register(
-    @Body('email') email: string,
-    @Body('password') password: string,
-    @Body('username') username: string,
-  ) {
-    return this.authService.register(email, password, username);
+  async register(@Body() registerDTO: RegisterDTO) {
+    return this.authService.register(registerDTO);
   }
 
   @UseGuards(JWTAuthGuard)
